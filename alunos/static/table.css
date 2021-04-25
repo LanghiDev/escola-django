@@ -1,0 +1,53 @@
+body {
+    width: min(90vw, 1100px);
+    margin: auto;
+}
+
+/* TABLE ==============================*/
+#dados-alunos {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+}
+
+#alunos-table {
+    width: 100%;
+    border-spacing: 0 0.5rem;
+    color: #616986;
+}
+table thead tr th:first-child,
+table tbody tr td:first-child {
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+table thead tr th:last-child,
+table tbody tr td:last-child{
+    border-radius: 0 0.25rem 0.25rem 0;
+}
+
+table tbody tr{
+    opacity: 0.7;
+}
+table tbody tr:hover{
+    opacity: 1;
+}
+
+table th {
+    background: white;
+    
+    font-weight: normal;
+    padding: 1rem 2rem;
+
+    text-align: left;
+}
+
+table td {
+    background: white;
+
+    padding: 1rem 2rem;
+    font-weight: normal;
+}
+
+table td.nome-aluno {
+    color: #213ea8;
+}
+

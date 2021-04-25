@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siga ELC Bauru - Centro C Langhi</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'table.css' %}">
+</head>
+<body>
+    {%include 'model-header.html'%}
+    <a href="/logout" class="link-logout">Sair da conta {{request.user|title}}</a>
+    <section id="dados-alunos">
+        <a href="#" class="new">+ Novo Aluno</a>
+        <table id="alunos-table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Ano</th>
+                    <th>1° Média</th>
+                    <th>2° Média</th>
+                    <th>3° Média</th>
+                    <th>Média Final</th>
+                    <th>Resultado</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for a in alunos %}
+                <tr>
+                    <td class="nome-aluno">{{a}}</td>
+                    <td class="ano">{{a.serie}}</td>
+                    <td class="media1">{{a.media1}}</td>
+                    <td class="media2">{{a.media2}}</td>
+                    <td class="media3">{{a.media3}}</td>
+                    <td class="media-final" style="
+                    {%if a.media4 >= 0%}
+                    color: #c0921e;
+                    {%endif%}
+                    ">{{a.media4}}</td>
+                    <td class="resultado" style="
+                    {%if a.media4 > 6%} 
+                    color: #12a454; 
+
+                    {%elif a.media4 >= 0%}
+                    color: #e92929;
+                    
+                    {%endif%}">{{a.media_final}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+    {%include 'model-footer.html'%}
+</body>
