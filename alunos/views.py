@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from alunos.models import Aluno
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate, logout
 
@@ -29,4 +30,6 @@ def submit_login(request):
         aut = authenticate(username=username, password=password)
         if aut is not None:
             login(request, aut)
+        else:
+            messages.error(request, "Usuário ou senha inválido!")
     return redirect('/')

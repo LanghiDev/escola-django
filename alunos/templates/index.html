@@ -14,5 +14,9 @@
         <input type="submit" value="Entrar" />
     </div>
     </form>
-    
+    {% for message in messages %}
+    <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; padding: 1.5rem">
+        <p style="color: #B20000;"><strong>Erro: </strong>{{ message }}</p>
+    </div>
+    {% endfor %}
 {% endblock %}
